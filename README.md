@@ -3,6 +3,10 @@
 Compare near-identical photos at pixel level. Each frame keeps its own zoom and pan,
 so switching frames changes only the thing you're judging.
 
+**Live app:** [dnkextra.github.io/peek](https://dnkextra.github.io/peek/)
+
+> This app was written by LLMs with minimal human code review.
+
 ## Files
 
 | File | Job |
