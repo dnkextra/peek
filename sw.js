@@ -5,7 +5,7 @@
    Deliberately dumb about the photos: it stores the raw blobs and lets index.html
    do the import, so EXIF parsing, labelling and thumbnails live in exactly one place. */
 
-const CACHE = 'peek-v3';
+const CACHE = 'peek-v4';
 const SHELL = ['./','./index.html','./manifest.webmanifest',
                './icon-192.png','./icon-512.png','./icon-maskable-512.png'];
 
