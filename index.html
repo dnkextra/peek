@@ -639,6 +639,7 @@ async function openSet(id){
   if(!set){ showLibrary(); return; }
   frames=(await framesOf(id)).sort((a,b)=>a.order-b.order);
   if(!frames.length){ toast('That comparison has no photos'); return; }
+  if($('#viewer').classList.contains('hidden')) history.pushState({},'');
   set.views=set.views||{};
   frames.forEach(f=>{ if(!set.views[f.id]) set.views[f.id]={scale:null,cx:f.w/2,cy:f.h/2}; });
   index=Math.min(set.index||0,frames.length-1);
@@ -951,7 +952,10 @@ $('#file').onchange=async e=>{
     if(id) await openSet(id);
   }
 };
-$('#back').onclick=showLibrary;
+$('#back').onclick=()=>history.back();
+addEventListener('popstate',()=>{
+  if(!$('#viewer').classList.contains('hidden')) showLibrary();
+});
 $('#fit').onclick=()=>{ if(!frames.length)return; const f=frames[index],v=view();
   v.scale=null; v.cx=f.w/2; v.cy=f.h/2; clamp(); draw(); save(); };
 $('#match').onclick=e=>{
